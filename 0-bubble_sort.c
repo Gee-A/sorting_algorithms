@@ -12,10 +12,6 @@ void bubble_sort(int *array, size_t size)
 {
 	size_t i, j;
 
-	/**
-	 * compares the first two number if and swap appropriately
-	 * then go to the next until all are sorted.
-	 */
 	if (!array || size < 2)
 		return;
 
