@@ -26,6 +26,8 @@ void print_array(const int *array, size_t size);
 void print_list(const listint_t *list);
 void _swap(const int a, const int b);
 void bubble_sort(int *array, size_t size);
+void insertion_sort_list(listint_t **list);
 
-
+/* -- helpers.c -- */
+listint_t *backward_swap(listint_t **node, listint_t **head);
 #endif /* _SORT_H */
