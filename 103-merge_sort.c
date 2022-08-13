@@ -47,7 +47,7 @@ void merge_recursion(int *arr, int *array, size_t left, size_t right)
 
 /**
  * merge_subarray - the conquer function merges subarray
- * @arr:
+ * @arr: array.copy()
  * @array: array to sort
  * @left: index of the leftmost element
  * @mid: index of the middle element
