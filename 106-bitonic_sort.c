@@ -48,19 +48,7 @@ void bitonic_merge(int *array, int low, int count, int direction)
 {
 	int i;
 	int k;
-	char *dir;
-	char *sep = "";
 
-	if (direction == 1)
-		dir = "UP";
-	else if (direction == 0)
-		dir = "DOWN";
-	printf("Merging [%d/%ld] (%s):\n", count, array_size, dir);
-	for (i = low; i < count; i++)
-	{
-		printf("%d%s\n", array[i], sep);
-		sep = ",";
-	}
 	if (count > 1)
 	{
 		k = count / 2;
@@ -71,11 +59,5 @@ void bitonic_merge(int *array, int low, int count, int direction)
 		}
 		bitonic_merge(array, low, k, direction);
 		bitonic_merge(array, low + k, k, direction);
-	}
-	printf("Result [%d/%ld] (%s):\n", count, array_size, dir);
-	for (i = low; i < count; i++)
-	{
-		printf("%d%s\n", array[i], sep);
-		sep = ",";
 	}
 }
