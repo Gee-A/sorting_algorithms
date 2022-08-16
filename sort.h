@@ -38,5 +38,6 @@ int partition(int *array, int low, int high);
 
 /* -- 106-bitonic_aort.c -- */
 void bitonic_sort(int *array, size_t size);
-void bitonic_sort_algo(int *array, int low, int partition, int direction);
+void bitonic_sort_algo(int *array, int low, int high, int direction);
+void bitonic_merge(int *array, int low, int count, int direction);
 #endif /* _SORT_H */
