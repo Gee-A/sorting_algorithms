@@ -18,15 +18,13 @@ listint_t *backward_swap(listint_t **node, listint_t **head)
 		return (*node);
 	node_t->prev = prev->prev;
 	if (prev->prev != NULL)
-	{
 		prev->prev->next = node_t;
-		prev->prev = node_t;
-	}
 	else
 		*head = node_t;
 	prev->next = next;
 	if (next != NULL)
 		next->prev = prev;
 	node_t->next = prev;
+        prev->prev = node_t;
 	return (*node);
 }
