@@ -1,5 +1,6 @@
 #include "sort.h"
 void quick_sort(int *array, size_t size);
+size_t array_size;
 /**
  * quick_sort - sorts an array of integers in ascending order using
  * Quick sort
@@ -9,6 +10,9 @@ void quick_sort(int *array, size_t size);
  */
 void quick_sort(int *array, size_t size)
 {
+	extern size_t array_size;
+	array_size = size - 1;
+	quick_sort_algo(array, 0, array_size);
 }
 /**
  * quick_sort_algo - quick sort
@@ -39,18 +43,21 @@ void quick_sort_algo(int *array, int low, int high)
  */
 int partition(int *array, int low, int high)
 {
+	extern size_t array_size;
 	int pivot = array[high];
 	int i = low - 1;
 	int j;
 
-	for (j = low; j <=high - 1; j++)
+	
+	for (j = low; j <= high - 1; j++)
 	{
 		if (array[j] < pivot)
 		{
 			i++;
-			_swap(arr[i], arr[j]);
+			_swap((array + i), (array + j));
+			print_array(array, array_size + 1);
 		}
 	}
-	_swap(array[i + 1], array[high]);
+	_swap((array + i + 1), (array + high));
 	return(i + 1);
 }

@@ -24,10 +24,15 @@ typedef struct listint_s
 /* -- function prototypes -- */
 void print_array(const int *array, size_t size);
 void print_list(const listint_t *list);
-void _swap(const int a, const int b);
+void _swap(int *a, int *b);
 void bubble_sort(int *array, size_t size);
 void insertion_sort_list(listint_t **list);
 void counting_sort(int *array, size_t size);
 /* -- helpers.c -- */
 listint_t *backward_swap(listint_t **node, listint_t **head);
+
+/* -- 3-quick_sort.c --*/
+void quick_sort(int *array, size_t size);
+void quick_sort_algo(int *array, int low, int high);
+int partition(int *array, int low, int high);
 #endif /* _SORT_H */
