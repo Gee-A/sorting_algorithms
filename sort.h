@@ -35,4 +35,8 @@ listint_t *backward_swap(listint_t **node, listint_t **head);
 void quick_sort(int *array, size_t size);
 void quick_sort_algo(int *array, int low, int high);
 int partition(int *array, int low, int high);
+
+/* -- 106-bitonic_aort.c -- */
+void bitonic_sort(int *array, size_t size);
+void bitonic_sort_algo(int *array, int low, int partition, int direction);
 #endif /* _SORT_H */

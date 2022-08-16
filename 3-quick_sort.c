@@ -12,6 +12,11 @@ void quick_sort(int *array, size_t size)
 {
 	extern size_t array_size;
 	array_size = size - 1;
+	
+	if (array == NULL)
+		return;
+	if (size <= 0)
+		return;
 	quick_sort_algo(array, 0, array_size);
 }
 /**
