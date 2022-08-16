@@ -52,6 +52,7 @@ void cocktail_sort_list(listint_t **list)
 
 /**
  * _swapNode - swaps element in a doublyLinkedList (int)
+ * @head: head node
  * @left: node to the left up for swap
  * @right: node to the right up for swap
  */

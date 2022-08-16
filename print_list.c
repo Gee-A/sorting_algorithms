@@ -1,7 +1,3 @@
-
-
-
-
 #include "sort.h"
 
 /**
@@ -11,7 +7,6 @@
  */
 void print_list(const listint_t *list)
 {
-
 	int i;
 
 	i = 0;
@@ -24,9 +19,4 @@ void print_list(const listint_t *list)
 		list = list->next;
 	}
 	printf("\n");
-
-
-
-
-
 }

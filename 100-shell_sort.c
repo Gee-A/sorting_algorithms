@@ -22,8 +22,7 @@ void shell_sort(int *array, size_t size)
 	 * using the knuth sequence (n + 1) = n * 3 + 1
 	 * other case could be taking the array size at start
 	 */
-	do
-	{
+	do {
 		gap = gap * 3 + 1;
 	} while (gap < size);
 

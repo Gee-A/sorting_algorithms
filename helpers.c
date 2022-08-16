@@ -4,8 +4,8 @@
 /**
  * backward_swap - swap a node in a list with the previous node
  * provided that the previous node is not null
- * node: the node to swap
- * head: head of the list
+ * @node: the node to swap
+ * @head: head of the list
  * Return: the pointer to the node
  */
 listint_t *backward_swap(listint_t **node, listint_t **head)
@@ -25,6 +25,6 @@ listint_t *backward_swap(listint_t **node, listint_t **head)
 	if (next != NULL)
 		next->prev = prev;
 	node_t->next = prev;
-        prev->prev = node_t;
+	prev->prev = node_t;
 	return (*node);
 }

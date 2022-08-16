@@ -1,5 +1,5 @@
 #include "sort.h"
-size_t array_size;
+
 /**
  * bitonic_sort - sorts anarray of integers in ascending order using
  * Bitonic sort algorithm
@@ -10,11 +10,10 @@ size_t array_size;
  */
 void bitonic_sort(int *array, size_t size)
 {
-	array_size = size;
 	if (array == NULL)
 		return;
 
-	bitonic_sort_algo(array, 0, array_size, 1);
+	bitonic_sort_algo(array, 0, size, 1);
 }
 /**
  * bitonic_sort_algo - bitonic sort
@@ -24,7 +23,7 @@ void bitonic_sort(int *array, size_t size)
  * @direction: direction
  * Return: void
  */
-void bitonic_sort_algo(int *array, int low, int high, int direction)
+void bitonic_sort_algo(int *array, int low, size_t high, int direction)
 {
 	int k;
 
@@ -39,7 +38,7 @@ void bitonic_sort_algo(int *array, int low, int high, int direction)
 /**
  * bitonic_merge - bitonic sort
  * @array: array to sort
- * @partition: the index of partition, the half of the list
+ * @count: the index of partition, the half of the list
  * @low: the low end of the partition
  * @direction: 1 signifies increasing order and 0 signifies decreasing
  * Return: void

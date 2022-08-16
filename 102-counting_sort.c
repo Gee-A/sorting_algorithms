@@ -15,11 +15,18 @@ void counting_sort(int *array, size_t size)
 	if (!array || size < 2)
 		return;
 	max = array[0];
-	for (i =1; i < size && array[i]; i++)
-		if (array[i] >max)
+	for (i = 1; i < size && array[i]; i++)
+		if (array[i] > max)
 			max = array[i];
 	h_counting_sort(array, size, max + 1);
 }
+
+/**
+ * h_counting_sort - counting sort helper function
+ * @array: the array to sort
+ * @size: size of the array
+ * @k: size of the count array to be created
+ */
 void h_counting_sort(int *array, size_t size, int k)
 {
 	int i, *array_copy, *count;

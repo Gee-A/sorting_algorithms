@@ -1,3 +1,3 @@
-O(n)
-n + k
-n + k
+O(n+k)
+O(n+k)
+O(n+k)

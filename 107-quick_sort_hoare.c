@@ -1,7 +1,8 @@
 #include "sort.h"
 
 int partition(int *array, size_t lower_b, size_t upper_b);
-void quicksort_recursion(int *array, size_t lower_b, size_t upper_b, size_t size);
+void quicksort_recursion(int *array, size_t lower_b, size_t upper_b,
+			size_t size);
 
 /**
  * quick_sort_hoare - sorts an array (int) in ascending order
@@ -27,7 +28,8 @@ void quick_sort_hoare(int *array, size_t size)
  * @upper_b: upper bound of the array
  * @size: size of the array
  */
-void quicksort_recursion(int *array, size_t lower_b, size_t upper_b, size_t size)
+void quicksort_recursion(int *array, size_t lower_b, size_t upper_b,
+			size_t size)
 {
 	size_t pos;
 
@@ -58,10 +60,10 @@ int partition(int *array, size_t lower_b, size_t upper_b)
 	while (1)
 	{
 		do {
-				i += 1;
+			i += 1;
 		} while (array[i] < pivot);
 		do {
-				j -= 1;
+			j -= 1;
 		} while (array[j] > pivot);
 
 		if (i >= j)
