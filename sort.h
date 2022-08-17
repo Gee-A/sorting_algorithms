@@ -44,7 +44,6 @@ void counting_sort(int *array, size_t size);
 /* -- 3-quick_sort.c --*/
 void quick_sort(int *array, size_t size);
 void quick_sort_algo(int *array, int low, int high);
-int partition(int *array, int low, int high);
 
 /* -- 106-bitonic_aort.c -- */
 void bitonic_sort(int *array, size_t size);

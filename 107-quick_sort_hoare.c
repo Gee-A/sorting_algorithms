@@ -1,7 +1,7 @@
 #include "sort.h"
 
-int partition(int *array, size_t lower_b, size_t upper_b);
-void quicksort_recursion(int *array, size_t lower_b, size_t upper_b,
+int partition(int *array, int lower_b, int upper_b, size_t size);
+void quicksort_recursion(int *array, int lower_b, int upper_b,
 			size_t size);
 
 /**
@@ -18,7 +18,7 @@ void quick_sort_hoare(int *array, size_t size)
 {
 	if (!array || size < 2)
 		return;
-	quicksort_recursion(array, 0, size - 1, size);
+	quicksort_recursion(array, 0, (int)size - 1, size);
 }
 
 /**
@@ -28,15 +28,14 @@ void quick_sort_hoare(int *array, size_t size)
  * @upper_b: upper bound of the array
  * @size: size of the array
  */
-void quicksort_recursion(int *array, size_t lower_b, size_t upper_b,
+void quicksort_recursion(int *array, int lower_b, int upper_b,
 			size_t size)
 {
-	size_t pos;
+	int pos;
 
 	if (lower_b < upper_b)
 	{
-		pos = partition(array, lower_b, upper_b);
-		print_array(array, size);
+		pos = partition(array, lower_b, upper_b, size);
 		quicksort_recursion(array, lower_b, pos - 1, size);
 		quicksort_recursion(array, pos, upper_b, size);
 	}
@@ -51,7 +50,7 @@ void quicksort_recursion(int *array, size_t lower_b, size_t upper_b,
  *
  * Return: sorted position of the pivot in the array.
  */
-int partition(int *array, size_t lower_b, size_t upper_b)
+int partition(int *array, int lower_b, int upper_b, size_t size)
 {
 	int tmp, pivot = array[upper_b];
 	size_t i = lower_b - 1;
@@ -73,6 +72,7 @@ int partition(int *array, size_t lower_b, size_t upper_b)
 			tmp = array[i];
 			array[i] = array[j];
 			array[j] = tmp;
+			print_array(array, size);
 		}
 	}
 	return (0);
