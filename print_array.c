@@ -20,16 +20,3 @@ void print_array(const int *array, size_t size)
 	}
 	printf("\n");
 }
-
-/**
- * _swap - swap two integers
- * @a: integer value
- * @b: integer value
- */
-void _swap(int *a, int *b)
-{
-	int tmp = *a;
-
-	*a = *b;
-	*b = tmp;
-}
