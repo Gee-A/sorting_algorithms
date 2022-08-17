@@ -1,6 +1,6 @@
 #include "sort.h"
-
-void quick_sort(int *array, size_t size);
+void quick_sort_algo(int *array, int low, int high, size_t size);
+int partition(int *array, int low, int high, size_t size);
 
 /**
  * quick_sort - sorts an array of integers in ascending order using
@@ -33,13 +33,13 @@ void quick_sort_algo(int *array, int low, int high, size_t size)
 	if (low < high)
 	{
 		array_part = partition(array, low, high, size);
-		quick_sort_algo(array, low, array_part - 1);
-		quick_sort_algo(array, array_part + 1, high);
+		quick_sort_algo(array, low, array_part - 1, size);
+		quick_sort_algo(array, array_part + 1, high, size);
 	}
 }
 /**
  * partition - partitions an array by taking the last element as pivot,
- * and places all element smaller than pivot to the left side and all element
+ * and places all element smaller than pivot to the left side and all elem
  * greater than pivot to the right side
  * @array: array to partition
  * @low: the low of partition
@@ -51,17 +51,28 @@ int partition(int *array, int low, int high, size_t size)
 {
 	int pivot = array[high];
 	int i = low - 1;
-	int j;
+	int tmp, j;
 
 	for (j = low; j <= high - 1; j++)
 	{
 		if (array[j] < pivot)
 		{
 			i++;
-			_swap((array + i), (array + j));
-			print_array(array, size);
+			if (i != j)
+			{
+				tmp = array[i];
+				array[i] = array[j];
+				array[j] = tmp;
+				print_array(array, size);
+			}
 		}
 	}
-	_swap((array + i + 1), (array + high));
+	if (array[high] < array[i + 1])
+	{
+		tmp = array[i + 1];
+		array[i + 1] = array[high];
+		array[high] = tmp;
+		print_array(array, size);
+	}
 	return (i + 1);
 }
