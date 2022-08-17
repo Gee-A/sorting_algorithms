@@ -1,6 +1,6 @@
 #include "sort.h"
 
-void _swapNode(listint_t **head, listint_t **left, listint_t **right);
+void _swapNode(listint_t **list, listint_t **p);
 
 /**
  * cocktail_sort_list - sorts a doublyLinkedList (int) in ascending order
@@ -26,7 +26,7 @@ void cocktail_sort_list(listint_t **list)
 			if (current->n > current->next->n)
 			{
 				sorted = 0;
-				_swapNode(list, &current, &current->next);
+				_swapNode(list, &current);
 				print_list(*list);
 			}
 			else
@@ -41,7 +41,8 @@ void cocktail_sort_list(listint_t **list)
 			if (current->n < current->prev->n)
 			{
 				sorted = 0;
-				_swapNode(list, &current->prev, &current);
+				current = current->prev;
+				_swapNode(list, &current);
 				print_list(*list);
 			}
 			else
@@ -52,47 +53,26 @@ void cocktail_sort_list(listint_t **list)
 
 /**
  * _swapNode - swaps element in a doublyLinkedList (int)
- * @head: head node
- * @left: node to the left up for swap
- * @right: node to the right up for swap
+ * @list: head node
+ * @p: pointer to node
  */
-void _swapNode(listint_t **head, listint_t **left, listint_t **right)
+void _swapNode(listint_t **list, listint_t **p)
 {
-	listint_t *tmp1, *tmp2;
+	listint_t *one, *two, *three, *four;
 
-	if (!(*left)->prev && !(*right)->next)
-	{
-		(*left)->prev = *right;
-		(*right)->next = *left;
-		(*left)->next = (*right)->prev = NULL;
-		*head = *right;
-	}
-	else if (!(*left)->prev && (*right)->next)
-	{
-		(*left)->prev = *right;
-		(*left)->next = (*right)->next;
-		(*right)->next->prev = *left;
-		(*right)->next = *left;
-		(*right)->prev = NULL;
-		*head = *right;
-	}
-	else if ((*left)->prev && !(*right)->next)
-	{
-		(*right)->next = *left;
-		(*right)->prev = (*left)->prev;
-		(*left)->prev->next = *right;
-		(*left)->prev = *right;
-		(*left)->next = NULL;
-	}
+	one = (*p)->prev;
+	two = *p;
+	three = (*p)->next;
+	four = (*p)->next->next;
+	two->next = four;
+	if (four)
+		four->prev = two;
+	three->next = two;
+	three->prev = two->prev;
+	if (one)
+		one->next = three;
 	else
-	{
-		tmp1 = *left;
-		tmp2 = *right;
-		tmp1->next = (*right)->next;
-		tmp2->prev = (*left)->prev;
-		tmp2->prev->next = tmp2;
-		tmp1->next->prev = tmp1;
-		tmp1->prev = tmp2;
-		tmp2->next = tmp1;
-	}
+		*list = three;
+	two->prev = three;
+	*p = three;
 }
